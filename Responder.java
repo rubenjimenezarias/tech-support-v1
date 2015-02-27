@@ -13,7 +13,7 @@ import java.util.HashSet;
 public class Responder
 {
     private ArrayList <String> respuestas;
-    private HashMap<String, String> respuestasRuben;
+    private HashMap<HashSet, String> respuestasRuben;
     
     /**
      * Construct a Responder - nothing to do
@@ -21,7 +21,7 @@ public class Responder
     public Responder()
     {
         respuestas = new ArrayList<>();
-        respuestasRuben = new HashMap<String, String>();
+        respuestasRuben = new HashMap<HashSet, String>();
         cargarRespuestasAleatorias();
         cargarRespuestasRuben();
     }
@@ -35,12 +35,9 @@ public class Responder
         String respuesta = null;
         HashSet<String> conjunto = pregunta;
         //Sacamos la palabra clave del conjunto HashSet
-        for (String elemento : conjunto)
+        if(respuestasRuben.containsKey(pregunta))
         {
-            if(respuestasRuben.containsKey(elemento))
-            {
-                respuesta=respuestasRuben.get(elemento);
-            }
+            respuesta=respuestasRuben.get(pregunta);
         }
         if(respuesta == null)
         {
@@ -69,11 +66,16 @@ public class Responder
      */
     public void cargarRespuestasRuben()
     {
-        respuestasRuben.put("edad","a ti que te importa mi edad");
-        respuestasRuben.put("coche","tengo un Ford");
-        respuestasRuben.put("motos","me encantan las motos");
-        respuestasRuben.put("futbol","soy del Real Madrid");
+        HashSet<String> freeapp = new HashSet<>();
+        freeapp.add("free");
+        freeapp.add("app");
+        respuestasRuben.put(freeapp,"contiene freeapp");
         
+        HashSet<String> problemlinuxcrash = new HashSet<>();
+        problemlinuxcrash.add("problem");
+        problemlinuxcrash.add("linux");
+        problemlinuxcrash.add("crash");
+        respuestasRuben.put(problemlinuxcrash,"PROBLEMA linux ha roto");
     }
     
 }
