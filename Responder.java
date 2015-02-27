@@ -66,7 +66,8 @@ public class Responder
         respuestasRuben.put("edad","a ti que te importa mi edad");
         respuestasRuben.put("coche","tengo un Ford");
         respuestasRuben.put("motos","me encantan las motos");
-        respuestasRuben.put("futbol","soy del Real Madrid");
+        respuestasRuben.put("futbol gol","soy del Real Madrid");
+        
     }
     
 }
