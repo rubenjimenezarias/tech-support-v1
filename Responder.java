@@ -32,12 +32,17 @@ public class Responder
      */
     public String generateResponse(HashSet pregunta)
     {
-        String respuesta;
-        if(respuestasRuben.containsKey(pregunta))
+        String respuesta = null;
+        HashSet<String> conjunto = pregunta;
+        //Sacamos la palabra clave del conjunto HashSet
+        for (String elemento : conjunto)
         {
-            respuesta = respuestasRuben.get(pregunta);
+            if(respuestasRuben.containsKey(elemento))
+            {
+                respuesta=respuestasRuben.get(elemento);
+            }
         }
-        else
+        if(respuesta == null)
         {
             Random aleatorio = new Random();
             int numeroAleatorio = aleatorio.nextInt(respuestas.size());
@@ -67,7 +72,7 @@ public class Responder
         respuestasRuben.put("edad","a ti que te importa mi edad");
         respuestasRuben.put("coche","tengo un Ford");
         respuestasRuben.put("motos","me encantan las motos");
-        respuestasRuben.put("futbol gol","soy del Real Madrid");
+        respuestasRuben.put("futbol","soy del Real Madrid");
         
     }
     
