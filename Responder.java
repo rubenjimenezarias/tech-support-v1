@@ -1,6 +1,7 @@
 import java.util.Random ;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 
 /**
  * The responder class represents a response generator object.
@@ -29,7 +30,7 @@ public class Responder
      * Generate a response.
      * @return   A string that should be displayed as the response
      */
-    public String generateResponse(String pregunta)
+    public String generateResponse(HashSet pregunta)
     {
         String respuesta;
         if(respuestasRuben.containsKey(pregunta))

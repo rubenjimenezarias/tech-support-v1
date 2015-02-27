@@ -26,12 +26,16 @@ public class InputReader
      *
      * @return  A String typed by the user.
      */
-    public String getInput()
+    public HashSet getInput()
     {
         System.out.print("> ");         // print prompt
         String inputLine = reader.nextLine();
-        String arr[] = inputLine.split(" ", 2);
-        String firstWord = arr[0];
-        return inputLine;
+        HashSet<String> conjunto = new HashSet<>();
+        String arr[] = inputLine.split(" ");
+        for (String elemento: arr)
+        {
+            conjunto.add(elemento);
+        }
+        return conjunto;
     }
 }
