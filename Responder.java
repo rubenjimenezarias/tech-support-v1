@@ -39,13 +39,17 @@ public class Responder
         {
             respuesta=respuestasRuben.get(pregunta);
         }
-        if(respuesta == null)
+        if(respuesta == null && respuestas.size() > 0)
         {
             Random aleatorio = new Random();
             int numeroAleatorio = aleatorio.nextInt(respuestas.size());
             respuesta = respuestas.get(numeroAleatorio);
+            respuestas.remove(numeroAleatorio);
         }
-        
+        else
+        {
+            respuesta = "No te entiendo, se me acabaron las respuestas";
+        }
         return respuesta;
     }
     
@@ -56,9 +60,7 @@ public class Responder
     {
         respuestas.add("SI");
         respuestas.add("NO");
-        respuestas.add("No te entiendo nada");
         respuestas.add("A mi no me vaciles eh!!");
-        respuestas.add("Adios");
     }
     
     /**
